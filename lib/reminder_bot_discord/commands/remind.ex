@@ -4,30 +4,29 @@ defmodule ReminderBot.Commands.Remind do
 
   def get_command do
     %{
-      name: "remind",
+      name: "gwreminder",
       description: "Set a Guild War reminder for yourself",
       options: [
         %{
           type: 3,
           name: "reminder_type",
-          description:
-            "Time you'd like your reminder. Use 'super_early', 'early', 'late', or 'super_late'",
+          description: "Time you'd like your Guild War reminder.",
           required: true,
           choices: [
             %{
-              name: "Early Morning (9 ET)",
+              name: "Early Morning (10:00 ET)",
               value: "super_early"
             },
             %{
-              name: "Afternoon (13 ET)",
+              name: "Afternoon (13:00 ET)",
               value: "early"
             },
             %{
-              name: "Night (18 ET)",
+              name: "Night (18:00 ET)",
               value: "late"
             },
             %{
-              name: "Late Night (24 ET)",
+              name: "Late Night (00:00 / 24:00 ET)",
               value: "super_late"
             }
           ]

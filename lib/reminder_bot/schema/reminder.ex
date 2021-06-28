@@ -14,6 +14,6 @@ defmodule ReminderBot.Schema.Reminder do
   def changeset(reminder, attrs) do
     reminder
     |> cast(attrs, @fields)
-    |> unique_constraint(:user_id)
+    |> unique_constraint([:channel_id, :user_id])
   end
 end

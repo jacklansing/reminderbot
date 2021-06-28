@@ -1,6 +1,4 @@
-defmodule ReminderBot.Scheduler do
-  use Quantum, otp_app: :reminder_bot
-
+defmodule ReminderBot.Scheduler.ScheduledServices do
   import Ecto.Query, warn: false
   alias ReminderBot.Repo
   alias ReminderBot.Schema.Reminder
@@ -8,10 +6,10 @@ defmodule ReminderBot.Scheduler do
 
   # Note: gw starts at 10:00 UTC ~ 6 ET
 
-  def send_super_early_reminders() do
+  def send_gw_reminders(reminder_type) do
     query =
       from(rm in Reminder,
-        where: [reminder_type: "super_early"]
+        where: [reminder_type: ^reminder_type]
       )
 
     query
