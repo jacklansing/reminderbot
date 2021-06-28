@@ -6,7 +6,7 @@ defmodule ReminderBot.Scheduler do
   alias ReminderBot.Schema.Reminder
   alias ReminderBot.Messages
 
-  # Note: gw starts at 10:00 UTC
+  # Note: gw starts at 10:00 UTC ~ 6 ET
 
   def send_super_early_reminders() do
     query =
