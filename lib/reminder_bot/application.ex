@@ -1,25 +1,18 @@
 defmodule ReminderBot.Application do
-  use Nostrum.Consumer
+  use Supervisor
 
-  alias Nostrum.Api
-
-  def start_link do
-    Consumer.start_link(__MODULE__)
+  def start(_type, args \\ []) do
+    Supervisor.start_link(__MODULE__, args, name: __MODULE__)
   end
 
-  def handle_event({:MESSAGE_CREATE, msg, _ws_state}) do
-    IO.inspect(msg)
+  @impl true
+  def init(_init_arg) do
+    children = [
+      ReminderBot.Repo,
+      ReminderBot.Scheduler,
+      ReminderBot.Consumer
+    ]
 
-    case msg.content do
-      "!ping" ->
-        Api.create_message(msg.channel_id, "pong!")
-
-      _ ->
-        :ignore
-    end
-  end
-
-  def handle_event(_event) do
-    :noop
+    Supervisor.init(children, strategy: :one_for_one)
   end
 end

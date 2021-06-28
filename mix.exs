@@ -14,7 +14,7 @@ defmodule ReminderBot.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {ReminderBot.Supervisor, []},
+      mod: {ReminderBot.Application, []},
       extra_applications: [:logger]
     ]
   end
@@ -22,7 +22,10 @@ defmodule ReminderBot.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:nostrum, "~> 0.4"}
+      {:nostrum, "~> 0.4"},
+      {:quantum, "~> 3.0"},
+      {:ecto_sql, "~> 3.0"},
+      {:ecto_sqlite3, "~> 0.5.5"}
     ]
   end
 end

@@ -26,3 +26,5 @@ reminder_bot-*.tar
 /tmp/
 
 .elixir_ls
+
+/db/*.*
