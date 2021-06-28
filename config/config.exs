@@ -9,7 +9,7 @@ config :nostrum,
 
 config :reminder_bot, ReminderBot.Scheduler,
   jobs: [
-    {"* * * * *", {ReminderBot.Scheduler, :send_reminders, []}}
+    {"* * * * *", {ReminderBot.Scheduler, :send_super_early_reminders, []}}
   ]
 
 config :reminder_bot, ReminderBot.Repo, database: "./db/reminder_bot_data.db"
