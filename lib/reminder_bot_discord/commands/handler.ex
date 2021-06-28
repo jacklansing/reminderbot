@@ -7,7 +7,7 @@ defmodule ReminderBot.Commands.Handler do
     Remind
   }
 
-  def route_interaction(interaction = %{data: %{name: "remind"}}) do
+  def route_interaction(interaction = %{data: %{name: "gwreminder"}}) do
     Remind.handle_interaction(interaction)
   end
 end
