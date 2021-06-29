@@ -9,7 +9,6 @@ defmodule ReminderBot.Consumer do
   end
 
   def handle_event({:READY, _, _ws_state}) do
-    # Register slash commands here
     Api.update_status(:online, "Epic Seven")
     Handler.register_commands()
   end
